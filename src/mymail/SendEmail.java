@@ -1,8 +1,8 @@
 package mymail;
 
-//ĞèÒªÓÃ»§ÃûÃÜÂëÓÊ¼ş·¢ËÍÊµÀı
-//ÎÄ¼şÃû SendEmail2.java
-//±¾ÊµÀıÒÔQQÓÊÏäÎªÀı£¬ÄãĞèÒªÔÚqqºóÌ¨ÉèÖÃ
+//éœ€è¦ç”¨æˆ·åå¯†ç é‚®ä»¶å‘é€å®ä¾‹
+//æ–‡ä»¶å SendEmail2.java
+//æœ¬å®ä¾‹ä»¥QQé‚®ç®±ä¸ºä¾‹ï¼Œä½ éœ€è¦åœ¨qqåå°è®¾ç½®
 
 import java.util.Properties;
 
@@ -19,10 +19,10 @@ public class SendEmail
 {
  public static void main(String [] args)
  {
-    // ÊÕ¼şÈËµç×ÓÓÊÏä
+    // æ”¶ä»¶äººç”µå­é‚®ç®±
     String to = "xiaoyang4u@sina.com";
 
-    // ·¢¼şÈËµç×ÓÓÊÏä
+    // å‘ä»¶äººç”µå­é‚®ç®±
     String from = "1575945217@qq.com";
    int i = 0 ; 
     	while(sendMail(to, from)){
@@ -40,12 +40,12 @@ public class SendEmail
  }
 
 	private static boolean sendMail(String to, String from) {
-		// Ö¸¶¨·¢ËÍÓÊ¼şµÄÖ÷»úÎª localhost
-		String host = "smtp.qq.com"; // QQ ÓÊ¼ş·şÎñÆ÷
+		// æŒ‡å®šå‘é€é‚®ä»¶çš„ä¸»æœºä¸º localhost
+		String host = "smtp.qq.com"; // QQ é‚®ä»¶æœåŠ¡å™¨
 
-		// ÉèÖÃÊôĞÔ
+		// è®¾ç½®å±æ€§
 		Properties props = new Properties();
-		// QQÓÊÏä·¢¼şµÄ·şÎñÆ÷ºÍ¶Ë¿Ú
+		// QQé‚®ç®±å‘ä»¶çš„æœåŠ¡å™¨å’Œç«¯å£
 		props.put("mail.smtp.host", "smtp.qq.com");
 		props.put("mail.smtp.socketFactory.port", "465");
 		props.put("mail.smtp.socketFactory.class",
@@ -53,42 +53,42 @@ public class SendEmail
 		props.put("mail.smtp.auth", "true");
 		props.put("mail.smtp.port", "25");
 
-		// »ñÈ¡Ä¬ÈÏsession¶ÔÏó
+		// è·å–é»˜è®¤sessionå¯¹è±¡
 		Session session = Session.getDefaultInstance(props,
 				new Authenticator() {
 					public PasswordAuthentication getPasswordAuthentication() {
 
-						// fcvfkqlyaxzpieic
+						// xxxxxxxx
 						return new PasswordAuthentication("1575945217@qq.com",
-								"fcvfkqlyaxzpieic"); // ·¢¼şÈËÓÊ¼şÓÃ»§Ãû¡¢ÃÜÂë
+								"xxxxxx"); // å‘ä»¶äººé‚®ä»¶ç”¨æˆ·åã€å¯†ç 
 					}
 				});
 
 		try {
-			// ´´½¨Ä¬ÈÏµÄ MimeMessage ¶ÔÏó
+			// åˆ›å»ºé»˜è®¤çš„ MimeMessage å¯¹è±¡
 			MimeMessage message = new MimeMessage(session);
 
-			// Set From: Í·²¿Í·×Ö¶Î
+			// Set From: å¤´éƒ¨å¤´å­—æ®µ
 			message.setFrom(new InternetAddress(from));
 
-			// Set To: Í·²¿Í·×Ö¶Î
+			// Set To: å¤´éƒ¨å¤´å­—æ®µ
 			message.addRecipient(Message.RecipientType.TO, new InternetAddress(
 					to));
 
-//			// Set Subject: Í·²¿Í·×Ö¶Î
+//			// Set Subject: å¤´éƒ¨å¤´å­—æ®µ
 //			message.setSubject("Just4Test");
 //
-//			// ÉèÖÃÏûÏ¢Ìå
+//			// è®¾ç½®æ¶ˆæ¯ä½“
 //			message.setText("this is houyafei mail");
-			// Set Subject: Í·²¿Í·×Ö¶Î
-			message.setSubject("Ò»Æğ³ª°É");
+			// Set Subject: å¤´éƒ¨å¤´å­—æ®µ
+			message.setSubject("ä¸€èµ·å”±å§");
 
-			String[] str = {"ÄãÊÇÒ»Ö»Ğ¡Ì«Ñô£¬¹âÃ÷ÓÖÉÁÁÁ","´ºÌìÔÚÄÄÀïÑ½,´ºÌìÔÚÄÄÀï","Á½Ö»ÀÏ»¢Á½Ö»ÀÏ»¢ÅÜµÃ¿ì","Ò»ÉÁÒ»ÉÁÁÁ¾§¾§£¬ÂúÌì¶¼ÊÇĞ¡ĞÇĞÇ"};
+			String[] str = {"ä½ æ˜¯ä¸€åªå°å¤ªé˜³ï¼Œå…‰æ˜åˆé—ªäº®","æ˜¥å¤©åœ¨å“ªé‡Œå‘€,æ˜¥å¤©åœ¨å“ªé‡Œ","ä¸¤åªè€è™ä¸¤åªè€è™è·‘å¾—å¿«","ä¸€é—ªä¸€é—ªäº®æ™¶æ™¶ï¼Œæ»¡å¤©éƒ½æ˜¯å°æ˜Ÿæ˜Ÿ"};
 			
 			int i = (int)(Math.random()*10)%4;
-			// ÉèÖÃÏûÏ¢Ìå
+			// è®¾ç½®æ¶ˆæ¯ä½“
 			message.setText(str[i]);
-			// ·¢ËÍÏûÏ¢
+			// å‘é€æ¶ˆæ¯
 			Transport.send(message);
 			System.out
 					.println("Sent message successfully....from w3cschool.cc");
